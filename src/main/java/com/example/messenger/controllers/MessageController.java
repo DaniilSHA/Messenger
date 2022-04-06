@@ -6,10 +6,7 @@ import com.example.messenger.dto.MessageResponse;
 import com.example.messenger.service.UserService;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -21,7 +18,7 @@ public class MessageController {
     @Autowired
     private UserService userService;
 
-    @PutMapping("/send")
+    @PostMapping("/send")
     public MessageResponse makeAuthentication(@RequestBody MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
         String tokenFromHeader = httpServletRequest.getHeaders("Token").nextElement().split("_")[1];
         String tokenFromName = Jwts.builder().setSubject(messageRequest.getUsername()).compact();
