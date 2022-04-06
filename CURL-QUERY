@@ -1,0 +1,60 @@
+/*1.получение токена у пользователя Natali*/
+curl --location --request POST 'http://localhost:8888/user/authentication' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "Natali",
+    "password" : "admin"
+}'
+
+/*2.получение токена у пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/user/authentication' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name" : "Petr",
+    "password" : "root"
+}'
+
+/*3.послание первого сообщения на аккаун пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/message/send' \
+--header 'Token: bearer_eyJhbGciOiJub25lIn0.eyJzdWIiOiJQZXRyIn0.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Petr",
+    "message":"first message"
+}'
+
+/*4.послание второго сообщения на аккаун пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/message/send' \
+--header 'Token: bearer_eyJhbGciOiJub25lIn0.eyJzdWIiOiJQZXRyIn0.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Petr",
+    "message":"second message"
+}'
+
+/*5.послание третьего сообщения на аккаун пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/message/send' \
+--header 'Token: bearer_eyJhbGciOiJub25lIn0.eyJzdWIiOiJQZXRyIn0.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Petr",
+    "message":"third message"
+}'
+
+/*6.получение последних двух сообщений с аккаунта пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/message/send' \
+--header 'Token: bearer_eyJhbGciOiJub25lIn0.eyJzdWIiOiJQZXRyIn0.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Petr",
+    "message":"history 2"
+}'
+
+/*7.ошибка - такого количества сообщения для вывода нету (слишком много указали) - с аккаунта пользователя Petr*/
+curl --location --request POST 'http://localhost:8888/message/send' \
+--header 'Token: bearer_eyJhbGciOiJub25lIn0.eyJzdWIiOiJQZXRyIn0.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Petr",
+    "message":"history 5"
+}'

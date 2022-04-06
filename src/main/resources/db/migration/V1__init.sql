@@ -15,5 +15,5 @@ alter table if exists messages
     add constraint FKpsmh6clh3csorw43eaodlqvkn foreign key (user_id) references users (username);
 
 insert into users
-values ('Петр', 'root'),
-       ('Наташа', 'admin')
+values ('Petr', 'root'),
+       ('Natali', 'admin')
