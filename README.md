@@ -26,7 +26,7 @@ Make all command in the flow step by step:
 * endpoint - POST http://localhost:8888/user/authentication
   with JSON body like:
   {
-  "name" : "Наташа",
+  "name" : "Natali",
   "password" : "admin"
   } will return JSON with token like: {
   "token": "eyJhbGciOiJub25lIn0.eyJzdWIiOiLQndCw0YLQsNGI0LAifQ."
@@ -34,7 +34,7 @@ Make all command in the flow step by step:
 * endpoint - POST http://localhost:8888/message/send
   with JSON body like:
   {
-  "name" : "Наташа",
+  "name" : "Natali",
   "message" : "some information" OR "history [N]" (N - amount of retrieve messages)
   } 
  and with headers like:
