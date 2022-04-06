@@ -19,7 +19,7 @@ public class MessageController {
     private UserService userService;
 
     @PostMapping("/send")
-    public MessageResponse makeAuthentication(@RequestBody MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
+    public MessageResponse saveOrRetrieveMessage(@RequestBody MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
         String tokenFromHeader = httpServletRequest.getHeaders("Token").nextElement().split("_")[1];
         String tokenFromName = Jwts.builder().setSubject(messageRequest.getUsername()).compact();
         if (tokenFromHeader.equals(tokenFromName)) {
